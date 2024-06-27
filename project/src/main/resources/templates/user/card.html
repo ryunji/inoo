@@ -11,8 +11,20 @@
 </head>
 <body>
   <div id="content">
-    <div id="cardPile"></div>
-    <div id="cardSlots"></div>
+    <div class="flex-container">
+      <div class="flex-item">
+        <div id="cardPile"></div>
+        <div id="cardSlots"></div>
+      </div>
+      <div class="flex-item">
+        <input id="point" type="text" value="0">
+        /
+        <input type="text">
+      </div>
+    </div>
+    <div>
+      <h2 id="cor">게임시작</h2>
+    </div>
     <div id="successMessage">
       <h2>You did it!</h2>
       <button onclick="init()">Play Again</button>

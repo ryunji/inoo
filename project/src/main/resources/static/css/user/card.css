@@ -159,3 +159,17 @@ body {
     box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     padding: 20px;
   }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row; /* 기본값이므로 생략 가능 */
+  }
+  
+  .flex-item {
+    margin: 10px; /* 적절한 여백을 설정합니다. 생략 가능 */
+  }
+  
+  /* 추가적인 스타일을 설정할 수 있습니다. 예: */
+  #cardPile, #cardSlots {
+    border: 1px solid #000; /* 임시로 경계선을 설정하여 확인 */
+  }
