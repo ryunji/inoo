@@ -41,14 +41,20 @@ body {
     background: #ddf;
   }
   
-  #cardPile {
+  #cardImages {
     margin: 0 auto;
     background: #ffd;
   }
   
-  #cardSlots,
-  #cardPile {
+
+  #cardImages {
     width: 910px;
+  }  
+  #cardSlots{
+    width: 80px;
+  }
+  #cardSlots,
+  #cardImages {
     height: 120px;
     padding: 20px;
     border: 2px solid #333;
@@ -61,7 +67,7 @@ body {
   }
   
   #cardSlots div,
-  #cardPile div {
+  #cardImages div {
     float: left;
     width: 58px;
     height: 78px;
@@ -77,7 +83,7 @@ body {
   }
   
   #cardSlots div:first-child,
-  #cardPile div:first-child {
+  #cardImages div:first-child {
     margin-left: 0;
   }
   
@@ -89,14 +95,14 @@ body {
     border-style: dashed;
   }
   
-  #cardPile div {
+  #cardImages div {
     background: #666;
     color: #fff;
     font-size: 50px;
     text-shadow: 0 0 3px #000;
   }
   
-  #cardPile div.ui-draggable-dragging {
+  #cardImages div.ui-draggable-dragging {
     -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
     -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
     box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
@@ -170,6 +176,21 @@ body {
   }
   
   /* 추가적인 스타일을 설정할 수 있습니다. 예: */
-  #cardPile, #cardSlots {
+  #cardImages, #cardSlots {
     border: 1px solid #000; /* 임시로 경계선을 설정하여 확인 */
   }
+
+  #cardImages img {
+    width: 58px;
+    height: 78px;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #666;
+    cursor: move;
+}
+
+#cardImages img.ui-draggable-dragging {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+}
