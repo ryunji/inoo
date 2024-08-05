@@ -13,7 +13,7 @@
   <div id="content">
     <div class="flex-container">
       <div class="flex-item">
-        <p id="namesData" th:text="${names}" style="display:none"></p>
+        <p id="namesData"  th:text="${names}"  style="display:none"></p>
         <p id="imagesData" th:text="${images}" style="display:none"></p>
         <div id="cardImages"></div>
         <div id="cardSlots"></div>
@@ -21,11 +21,11 @@
       <div class="flex-item">
         <input id="point" type="text" value="0">
         /
-        <input type="text">
+        <input type="text" value="10">
       </div>
     </div>
     <div>
-      <h2 id="cor">게임시작</h2>
+      <button class="start-button">게임시작</button>
     </div>
     <div id="successMessage">
       <h2>You did it!</h2>
