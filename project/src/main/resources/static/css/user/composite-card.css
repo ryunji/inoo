@@ -78,7 +78,7 @@ body {
     width: 200px;
     height: 200px;
     padding: 10px;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     padding-bottom: 0;
     border: 2px solid #333;
     -moz-border-radius: 10px;
@@ -99,6 +99,10 @@ body {
   
   #cardSlots div {
     border-style: dashed;
+    display: flex;
+    justify-content: center;  /* 텍스트를 가로로 가운데 정렬 */
+    align-items: center;      /* 텍스트를 세로로 가운데 정렬 */
+    font-size: 24px;          /* 글씨 크기 */
   }
   
   #cardImages div {
