@@ -1,0 +1,277 @@
+body {
+    margin: 30px;
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+  
+  #content {
+    margin: 80px 70px;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .wideBox {
+    clear: both;
+    text-align: center;
+    margin: 70px;
+    padding: 10px;
+    background: #ebedf2;
+    border: 1px solid #333;
+  }
+  
+  .wideBox h1 {
+    font-weight: bold;
+    margin: 20px;
+    color: #666;
+    font-size: 1.5em;
+  }
+  
+  #cardSlots {
+    margin: 50px auto 0 auto;
+    background: #ddf;
+  }
+  
+  #cardImages {
+    margin: 0 auto;
+    background: #ffd;
+  }
+  
+
+  #cardImages {
+    width: 910px;
+  }  
+  #cardSlots{
+    width: 80px;
+  }
+  #cardSlots,
+  #cardImages {
+    height: 300px;
+    width: auto;
+    padding: 20px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+
+    /* 가운데 정렬을 위한 추가 스타일 */
+    display: flex;             /* Flexbox 사용 (필요에 따라) */
+    justify-content: center;    /* 자식 요소가 있을 경우 수평 가운데 정렬 */
+    align-items: center;        /* 자식 요소가 있을 경우 수직 가운데 정렬 */
+  }
+  
+  #cardSlots div,
+  #cardImages div {
+    float: left;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    background: #fff;
+  }
+  
+  #cardSlots div:first-child,
+  #cardImages div:first-child {
+    margin-left: 0;
+  }
+  
+  #cardSlots div.hovered {
+    background: #aaa;
+  }
+  
+  #cardSlots div {
+    border-style: dashed;
+  }
+  
+  #cardImages div {
+    background: #666;
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 3px #000;
+  }
+  
+  #cardImages div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  }
+  
+  #card1.correct {
+    background: red;
+  }
+  
+  #card2.correct {
+    background: brown;
+  }
+  
+  #card3.correct {
+    background: orange;
+  }
+  
+  #card4.correct {
+    background: yellow;
+  }
+  
+  #card5.correct {
+    background: green;
+  }
+  
+  #card6.correct {
+    background: cyan;
+  }
+  
+  #card7.correct {
+    background: blue;
+  }
+  
+  #card8.correct {
+    background: indigo;
+  }
+  
+  #card9.correct {
+    background: purple;
+  }
+  
+  #card10.correct {
+    background: violet;
+  }
+  
+  #successMessage {
+    position: absolute;
+    left: 580px;
+    top: 250px;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    background: #dfd;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px;
+  }
+
+  #point,#total{
+    width: 30px;
+  }
+  .flex-container {
+    display: flex;                /* Flexbox를 사용 */
+    justify-content: center;      /* 수평 가운데 정렬 */
+    align-items: center;          /* 수직 가운데 정렬 */
+  }
+  
+  .flex-item {
+    margin: 10px; /* 적절한 여백을 설정합니다. 생략 가능 */
+  }
+  
+  /* 추가적인 스타일을 설정할 수 있습니다. 예: */
+  #cardImages, #cardSlots {
+    border: 1px solid #000; /* 임시로 경계선을 설정하여 확인 */
+  }
+
+  #cardImages img {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #666;
+    cursor: move;
+}
+
+#cardImages img.ui-draggable-dragging {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+}
+
+.start-button {
+  background-color: #4CAF50; /* 버튼 배경색 */
+  color: white; /* 글씨 색상 */
+  border: none;
+  border-radius: 25px; /* 둥근 모서리 */
+  padding: 15px 30px; /* 내부 여백 */
+  font-size: 20px; /* 글씨 크기 */
+  cursor: pointer; /* 커서 변경 */
+  transition: background-color 0.3s, transform 0.2s; /* 애니메이션 효과 */
+}
+
+.start-button:hover {
+  background-color: #45a049; /* 호버 시 색상 변화 */
+  transform: scale(1.05);      /* 호버 시 버튼 확대 */
+}
+
+.start-button:active {
+  transform: scale(0.95); /* 클릭 시 눌리는 효과 */
+}
+
+/* 반응형 스타일 추가 */
+@media (max-width: 1200px) {
+  #cardImages {
+      width: 100%;
+      /* height:auto; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px; /* 이미지 간격 추가 */
+  }
+  #cardSlots {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  #cardImages img {
+      width: 45px;
+      height: 60px;
+      /* padding: 5px; */
+  }
+  #cardSlots div {
+      width: 45px;
+      height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+      margin: 10px;
+  }
+  #content {
+      margin: 20px;
+  }
+  #cardImages img {
+      width: 30px;
+      height: 40px;
+      padding: 2px;
+  }
+  #cardSlots div {
+      width: 30px;
+      height: 40px;
+  }
+}
