@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
 
     var imagesData = document.getElementById('imagesData').textContent;
     let orgImagePaths = JSON.parse(imagesData);
-    var imagePaths = orgImagePaths;                           // JSON 문자열을 JavaScript 객체로 변환
+    var imagePaths = null;                        // JSON 문자열을 JavaScript 객체로 변환
     var namesData  = document.getElementById('namesData').textContent;
     var names      = JSON.parse(namesData);                  
     
@@ -27,7 +27,7 @@ window.addEventListener('load', function () {
     init(p);
     function init(p){
 
-        imagePaths = orgImagePaths;
+        imagePaths = orgImagePaths.slice(); // 직접 참조하지 않고, 배열의 복사본 생성
         correctCards = 0;
         $('#cardImages').html('');
         $('#cardSlots').html('');
