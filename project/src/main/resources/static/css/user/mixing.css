@@ -219,9 +219,9 @@ body {
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
 }
 
-.start-button {
-  background-color: #4CAF50; /* 버튼 배경색 */
-  color: white; /* 글씨 색상 */
+.btn-start,.btn-home {
+  background-color: #eaec70; /* 버튼 배경색 */
+  color: black; /* 글씨 색상 */
   border: none;
   border-radius: 25px; /* 둥근 모서리 */
   padding: 15px 30px; /* 내부 여백 */

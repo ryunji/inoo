@@ -1,19 +1,25 @@
 window.addEventListener('load', function () {
 
     let optGames     = 0;
-    let correctGames = 0;   //게임 진행 횟수 => 10판 진행 시 종료.
-    let rmGames      = 10;  //게임 진행 횟수 => 10판 진행 시 종료.
+    let correctGames = 0;                                                       //게임 진행 횟수 => 10판 진행 시 종료.
+    let rmGames      = 10;                                                      //게임 진행 횟수 => 10판 진행 시 종료.
 
     var imagesData = document.getElementById('imagesData').textContent;
     let orgImagePaths = JSON.parse(imagesData);
-    var imagePaths = null;                        // JSON 문자열을 JavaScript 객체로 변환
+    var imagePaths = null;                                                      // JSON 문자열을 JavaScript 객체로 변환
     var namesData  = document.getElementById('namesData').textContent;
     var names      = JSON.parse(namesData);                  
     
-    let remainingImagePaths  = []; // 전역 변수로 선언
+    let remainingImagePaths  = [];                                              // 전역 변수로 선언
     let selectedCards = []; 
 
-    const sttBtn = this.document.querySelector('.start-button');
+    const homeBtn = this.document.querySelector('.btn-home');
+    homeBtn.onclick = function(){
+        
+       location.href = "/memory-cards";
+    }
+
+    const sttBtn = this.document.querySelector('.btn-start');
     sttBtn.onclick = async function(){
         
         alert("게임시작");
@@ -147,38 +153,6 @@ window.addEventListener('load', function () {
     // 모든 카드의 드래그 활성화
     function enableGameElements() { $('#cardImages img').draggable('enable'); }
 
-
-    function shuffleAndRenderCards(){
-         // 현재 카드 리스트에 새로 추가된 카드를 포함하여 섞기
-    selectedCards.sort(function () { return Math.random() - 0.5; });
-
-    // 기존의 카드 이미지를 모두 제거
-    $('#cardImages').empty();
-
-    // 섞인 순서대로 카드 이미지를 다시 추가
-    selectedCards.forEach(function(imagePath, index) {
-        let parts = imagePath.split('/');
-        let filename = parts[parts.length - 1];
-        let nameWithoutExtension = filename.split('.')[0];
-
-        $('<img>').attr({
-            'src': imagePath,
-            'id': 'card' + index,
-            'alt': 'Card ' + index
-        }).data('number', nameWithoutExtension).appendTo('#cardImages').draggable({
-            containment: '#content',
-            stack: '#cardImages img',
-            cursor: 'move',
-            revert: true,
-            disabled: false
-        });
-    });
-
-    // Flexbox의 정렬을 유지
-    $('#cardImages').css('display', 'flex');
-    $('#cardImages').css('justify-content', 'center');
-    $('#cardImages').css('align-items', 'center'); // 추가된 카드가 수직으로도 가운데 정렬되도록 함
-    }
     function checkGame(imagePath){
 
         if(optGames == 3){
@@ -204,13 +178,9 @@ window.addEventListener('load', function () {
             } 
         }else{
 
-
-            // 새로 추가된 카드를 포함해 섞기 및 렌더링
-        shuffleAndRenderCards();
-   return;
             //selectedCards = selectedCards.filter(card => card !== imagePath);
             //위에 영역에 카드 다섯장 다시 세팅
-            remainingImagePaths.sort(function () { return Math.random() - .5 });
+            remainingImagePaths.sort(function () { return Math.random() - .5 });        //기존에 사용되지 않았던 나머지 카드들, 이 중에 카드 한장 다시 선택해서 추가.
             //selectedCards.push(remainingImagePaths[0]);
             
             let selectedCardNames = [];
@@ -235,6 +205,13 @@ window.addEventListener('load', function () {
     
                 // 이름을 selectedCardNames 배열에 추가
                 selectedCardNames.push(nameWithoutExtension);       // push 메서드 사용
+                
+                // 카드 순서 섞기
+                let cardContainer = $('#cardImages');
+                let cards = cardContainer.children('img').get();
+                shuffleArray(cards);
+                $.each(cards, function(idx, card) { cardContainer.append(card); });
+                
                 // 사용된 imagePath를 imagePaths에서 제거
                 var index = imagePaths.indexOf(imagePath);
                 if (index > -1) {
@@ -245,6 +222,14 @@ window.addEventListener('load', function () {
             // 추가된 이미지가 레이아웃을 깨지 않도록 Flexbox의 정렬을 유지
             $('#cardImages').css('display', 'flex');
             $('#cardImages').css('justify-content', 'center');
+        }
+    }
+
+    // 배열을 섞는 함수
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
 
