@@ -3,6 +3,10 @@ body {
     font-family: "Georgia", serif;
     line-height: 1.8em;
     color: #333;
+    background-image: url('/image/background/grass-7331052_1280.jpg');
+    background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+    background-position: center; /* 이미지 중심 정렬 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
   }
   
   h1,
@@ -13,6 +17,9 @@ body {
   }
   
   #content {
+
+
+
     margin: 80px 70px;
     text-align: center;
     -moz-user-select: none;

@@ -147,6 +147,38 @@ window.addEventListener('load', function () {
     // 모든 카드의 드래그 활성화
     function enableGameElements() { $('#cardImages img').draggable('enable'); }
 
+
+    function shuffleAndRenderCards(){
+         // 현재 카드 리스트에 새로 추가된 카드를 포함하여 섞기
+    selectedCards.sort(function () { return Math.random() - 0.5; });
+
+    // 기존의 카드 이미지를 모두 제거
+    $('#cardImages').empty();
+
+    // 섞인 순서대로 카드 이미지를 다시 추가
+    selectedCards.forEach(function(imagePath, index) {
+        let parts = imagePath.split('/');
+        let filename = parts[parts.length - 1];
+        let nameWithoutExtension = filename.split('.')[0];
+
+        $('<img>').attr({
+            'src': imagePath,
+            'id': 'card' + index,
+            'alt': 'Card ' + index
+        }).data('number', nameWithoutExtension).appendTo('#cardImages').draggable({
+            containment: '#content',
+            stack: '#cardImages img',
+            cursor: 'move',
+            revert: true,
+            disabled: false
+        });
+    });
+
+    // Flexbox의 정렬을 유지
+    $('#cardImages').css('display', 'flex');
+    $('#cardImages').css('justify-content', 'center');
+    $('#cardImages').css('align-items', 'center'); // 추가된 카드가 수직으로도 가운데 정렬되도록 함
+    }
     function checkGame(imagePath){
 
         if(optGames == 3){
@@ -172,6 +204,10 @@ window.addEventListener('load', function () {
             } 
         }else{
 
+
+            // 새로 추가된 카드를 포함해 섞기 및 렌더링
+        shuffleAndRenderCards();
+   return;
             //selectedCards = selectedCards.filter(card => card !== imagePath);
             //위에 영역에 카드 다섯장 다시 세팅
             remainingImagePaths.sort(function () { return Math.random() - .5 });

@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;                                                       /* html과 body의 높이를 100%로 설정 */
+    margin: 0;                                                          /* 기본 여백 제거 */
+}
+h1{
+    font-size: 36px; /* 원하는 크기로 조절 */
+    color: white;
+}        
+.content {
+    height: 100vh; /* 화면 전체 높이 사용 */
+    background-image: url('/image/background/grass-7331052_1280.jpg');
+    background-size: cover;                                             /* 이미지가 화면을 꽉 채우도록 설정 */
+    background-position: center;                                        /* 이미지 중심 정렬 */
+    background-repeat: no-repeat;                                       /* 이미지 반복 방지 */
+    display: flex;                                                      /* flexbox 사용 */
+    flex-direction: column;                                             /* 세로 방향으로 정렬 */
+    align-items: center;                                                /* 가로 중앙 정렬 */
+    justify-content: center;                                            /* 세로 중앙 정렬 */
+    text-align: center;                                                 /* 텍스트 중앙 정렬 */
+}

@@ -19,12 +19,6 @@ import com.google.gson.Gson;
 @RequestMapping("card")
 public class CardController {
 
-    @GetMapping("index")
-    public String index(Model model){
-
-        return "index";
-    }
-
     @GetMapping("main")
     public String main(Model model){
 
