@@ -1,4 +1,4 @@
-package com.inoo.project.Controller;
+package com.inoo.project.Controller.card;
 
 import java.io.IOException;
 import java.nio.file.Files;
