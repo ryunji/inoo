@@ -6,26 +6,25 @@
     <title>Document</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-    <script src="/js/user/card.js" defer></script>
-    <link href="/css/user/card.css" rel="stylesheet">
+    <script src="/js/user/vegetable.js" defer></script>
+    <link href="/css/user/vegetable.css" rel="stylesheet">
 </head>
 <body>
   <div id="content">
     <div class="flex-container">
       <div class="flex-item">
-        <p id="namesData" th:text="${names}" style="display:none"></p>
+        <p id="namesData"  th:text="${names}"  style="display:none"></p>
         <p id="imagesData" th:text="${images}" style="display:none"></p>
         <div id="cardImages"></div>
         <div id="cardSlots"></div>
       </div>
       <div class="flex-item">
-        <input id="point" type="text" value="0">
-        /
-        <input type="text">
+        <input id="point" type="text" value="0"> / <input id="total" type="text" value="10">
       </div>
     </div>
     <div>
-      <h2 id="cor">게임시작</h2>
+      <button class="btn-home">홈으로</button>
+      <button class="btn-start">게임시작</button>
     </div>
     <div id="successMessage">
       <h2>You did it!</h2>

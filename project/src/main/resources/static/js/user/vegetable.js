@@ -3,13 +3,20 @@ let correctGames = 0;   //게임 진행 횟수 => 10판 진행 시 종료.
 let rmGames      = 10;       //게임 진행 횟수 => 10판 진행 시 종료.
 window.addEventListener("load", function(e){
 
-    const sttBtn = this.document.querySelector('.start-button');
-    sttBtn.onclick = async function(){
+
+    const btnHome = this.document.querySelector('.btn-home');
+    btnHome.onclick = function(){
+        
+        location.href = "/memory-cards";
+    }
+
+    const btnStt = this.document.querySelector('.btn-start');
+    btnStt.onclick = async function(){
         
         alert("게임시작");
         $(this).text(rmGames);       // 버튼 텍스트 숨기기
         enableGameElements();   // 게임 시작 시 카드 드래그 활성화
-        sttBtn.onclick = null;  // onclick 이벤트 핸들러 제거
+        btnStt.onclick = null;  // onclick 이벤트 핸들러 제거
     }
 
     init();
@@ -63,7 +70,7 @@ window.addEventListener("load", function(e){
         if(p == 'able'){
             
             enableGameElements();
-            sttBtn.innerHTML = rmGames;
+            btnStt.innerHTML = rmGames;
         }   
     }
 
@@ -150,10 +157,10 @@ window.addEventListener("load", function(e){
 
                 optGames     = 0;                       //초기화
                 if(correctGames == 3){
-                    sttBtn.innerHTML = "O";
+                    btnStt.innerHTML = "O";
                     addScore();
                 }else
-                    sttBtn.innerHTML = "X";
+                    btnStt.innerHTML = "X";
             
                 correctGames = 0;    
                 setTimeout(function() {

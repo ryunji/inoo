@@ -50,6 +50,6 @@ public class AnimalController {
         //System.out.println("파일들 :" + imagePaths);
         model.addAttribute("names",  new Gson().toJson(imageNames)); // JSON 형식으로 변환하여 모델에 추가
         model.addAttribute("images", new Gson().toJson(imagePaths));
-        return "user/card";
+        return "user/animals";
     }
 }

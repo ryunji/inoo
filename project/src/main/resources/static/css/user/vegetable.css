@@ -3,6 +3,10 @@ body {
     font-family: "Georgia", serif;
     line-height: 1.8em;
     color: #333;
+    background-image: url('/image/background/grass-7331052_1280.jpg');
+    background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+    background-position: center; /* 이미지 중심 정렬 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
   }
   
   h1,
@@ -55,7 +59,8 @@ body {
   }
   #cardSlots,
   #cardImages {
-    height: 120px;
+    height: 300px;
+    width: auto;
     padding: 20px;
     border: 2px solid #333;
     -moz-border-radius: 10px;
@@ -64,15 +69,20 @@ body {
     -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
     -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
     box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+
+    /* 가운데 정렬을 위한 추가 스타일 */
+    display: flex;             /* Flexbox 사용 (필요에 따라) */
+    justify-content: center;    /* 자식 요소가 있을 경우 수평 가운데 정렬 */
+    align-items: center;        /* 자식 요소가 있을 경우 수직 가운데 정렬 */
   }
   
   #cardSlots div,
   #cardImages div {
     float: left;
-    width: 58px;
-    height: 78px;
+    width: 200px;
+    height: 200px;
     padding: 10px;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     padding-bottom: 0;
     border: 2px solid #333;
     -moz-border-radius: 10px;
@@ -166,9 +176,17 @@ body {
     padding: 20px;
   }
 
+  #point,#total{
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
   .flex-container {
-    display: flex;
-    flex-direction: row; /* 기본값이므로 생략 가능 */
+    display: flex;                /* Flexbox를 사용 */
+    justify-content: center;      /* 수평 가운데 정렬 */
+    align-items: center;          /* 수직 가운데 정렬 */
   }
   
   .flex-item {
@@ -181,8 +199,8 @@ body {
   }
 
   #cardImages img {
-    width: 58px;
-    height: 78px;
+    width: 200px;
+    height: 200px;
     padding: 10px;
     margin: 0 10px 0 0;
     border: 2px solid #333;
@@ -193,4 +211,75 @@ body {
 
 #cardImages img.ui-draggable-dragging {
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+}
+
+.btn-start, .btn-home {
+  background-color: #eaec70; /* 버튼 배경색 */
+  color: black; /* 글씨 색상 */
+  border: none;
+  border-radius: 25px; /* 둥근 모서리 */
+  padding: 15px 30px; /* 내부 여백 */
+  font-size: 20px; /* 글씨 크기 */
+  cursor: pointer; /* 커서 변경 */
+  transition: background-color 0.3s, transform 0.2s; /* 애니메이션 효과 */
+}
+
+.start-button:hover {
+  background-color: #45a049; /* 호버 시 색상 변화 */
+  transform: scale(1.05);      /* 호버 시 버튼 확대 */
+}
+
+.start-button:active {
+  transform: scale(0.95); /* 클릭 시 눌리는 효과 */
+}
+
+/* 반응형 스타일 추가 */
+@media (max-width: 1200px) {
+  #cardImages {
+      width: 100%;
+      /* height:auto; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px; /* 이미지 간격 추가 */
+  }
+  #cardSlots {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  #cardImages img {
+      width: 45px;
+      height: 60px;
+      /* padding: 5px; */
+  }
+  #cardSlots div {
+      width: 45px;
+      height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+      margin: 10px;
+  }
+  #content {
+      margin: 20px;
+  }
+  #cardImages img {
+      width: 30px;
+      height: 40px;
+      padding: 2px;
+  }
+  #cardSlots div {
+      width: 30px;
+      height: 40px;
+  }
 }
