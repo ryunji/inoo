@@ -57,8 +57,7 @@ body {
   #cardSlots{
     width: 80px;
   }
-  #cardSlots,
-  #cardImages {
+  #cardSlots {
     height: 300px;
     width: auto;
     padding: 20px;
@@ -285,5 +284,74 @@ body {
   #cardSlots div {
       width: 30px;
       height: 40px;
+  }
+}
+
+/* 24.09.12 추가 */
+#cardImages {
+  position: relative;
+  width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+  background: #ffd;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  
+  /* 카드 간 간격 추가 */
+  gap: 5px;
+  
+  /* 가운데 정렬을 위한 추가 스타일 */
+  display: flex;             /* Flexbox 사용 (필요에 따라) */
+  justify-content: center;    /* 자식 요소가 있을 경우 수평 가운데 정렬 */
+  align-items: center;        /* 자식 요소가 있을 경우 수직 가운데 정렬 */
+}
+
+#cardImages img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: #666;
+  cursor: move;
+
+}
+
+#cardImages img:nth-child(1) { left: 50px; }
+#cardImages img:nth-child(2) { left: 279px; }
+#cardImages img:nth-child(3) { left: 508px; }
+#cardImages img:nth-child(4) { left: 736px; }
+#cardImages img:nth-child(5) { left: 965px; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  #cardImages, #cardSlots {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+  }
+
+  #cardImages img, #cardSlots div {
+      position: static;
+      display: inline-block;
+      margin: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #cardImages img, #cardSlots div {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  #cardImages img, #cardSlots div {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
   }
 }
