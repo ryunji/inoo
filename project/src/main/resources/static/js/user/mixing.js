@@ -191,37 +191,37 @@ window.addEventListener('load', function () {
                 let parts     = imagePath.split('/');
                 let filename  = parts[parts.length - 1];                    // "거북이.jpg"
                 let nameWithoutExtension = filename.split('.')[0];          // "거북이"
-                $('<img>').attr({
-                      'src': imagePath
-                    , 'id' : 'card'  + i
-                    , 'alt': 'Card ' + i
-                }).data('number', nameWithoutExtension).appendTo('#cardImages').draggable({
-                      containment: '#content'
-                    , stack: '#cardImages img'
-                    , cursor: 'move'
-                    , revert:   true
-                    , disabled: false                                // 드래그 비활성화
-                });
+                // $('<img>').attr({
+                //       'src': imagePath
+                //     , 'id' : 'card'  + i
+                //     , 'alt': 'Card ' + i
+                // }).data('number', nameWithoutExtension).appendTo('#cardImages').draggable({
+                //       containment: '#content'
+                //     , stack: '#cardImages img'
+                //     , cursor: 'move'
+                //     , revert:   true
+                //     , disabled: false                                // 드래그 비활성화
+                // });
     
                 // 이름을 selectedCardNames 배열에 추가
-                selectedCardNames.push(nameWithoutExtension);       // push 메서드 사용
+                //selectedCardNames.push(nameWithoutExtension);       // push 메서드 사용
                 
                 // 카드 순서 섞기
                 let cardContainer = $('#cardImages');
                 let cards = cardContainer.children('img').get();
-                shuffleArray(cards);
-                $.each(cards, function(idx, card) { cardContainer.append(card); });
+                //shuffleArray(cards);
+                //$.each(cards, function(idx, card) { cardContainer.append(card); });
                 
                 // 사용된 imagePath를 imagePaths에서 제거
                 var index = imagePaths.indexOf(imagePath);
                 if (index > -1) {
-                    imagePaths.splice(index, 1);                    // 해당 인덱스의 요소 제거
+                    //imagePaths.splice(index, 1);                    // 해당 인덱스의 요소 제거
                 }
             }
 
             // 추가된 이미지가 레이아웃을 깨지 않도록 Flexbox의 정렬을 유지
-            $('#cardImages').css('display', 'flex');
-            $('#cardImages').css('justify-content', 'center');
+            //$('#cardImages').css('display', 'flex');
+            //$('#cardImages').css('justify-content', 'center');
         }
     }
 
